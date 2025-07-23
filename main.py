@@ -105,6 +105,13 @@ from init_models_with_ca import init_model1
 
 # create and initialize a new cell of this model type
 model_cell = init_model1.setEphysParams(model_cell)
+
+#INSERTED FOR BENZODIAZEPINES
+#changes channel densities (increased conductance) at the soma level. all synapses are a function of the soma values.
+model_cell.soma(0.5).gbar_kfast *= 2
+model_cell.soma(0.5).gbar_kslow *= 2
+model_cell.soma(0.5).gbar_nat   *= 2
+
 model_cell.recalculate_passive_properties()
 model_cell.recalculate_channel_densities()
 
