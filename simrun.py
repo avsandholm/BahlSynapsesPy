@@ -74,7 +74,10 @@ def show_output(soma_v_vec, dend_v_vec, tuft_v_vec, t_vec, spike_times, plotflag
     pyplot.figure()
     i=1
     if (spike_times.size()>0):
-        pyplot.vlines(spike_times, i + 0.5, i + 1.5)
+        print("spike_times =", spike_times)
+        print("type =", type(spike_times))
+
+        pyplot.vlines(list(spike_times), 0.5, 1.5)  #changes generator into list to fix error. #old line: "pyplot.vlines(spike_times, i + 0.5, i + 1.5)""
     pyplot.xlabel('time (ms)')
     pyplot.ylabel('Cell #')
     pyplot.ylim([0,5])
